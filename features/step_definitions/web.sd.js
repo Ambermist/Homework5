@@ -2,7 +2,7 @@
 const { When, Then, Given } = require('@cucumber/cucumber');
 const YAML = require('yaml');
 
-When(/^I go to "([^"]*)"$/, async function (url) {
+When(/^I will go to "([^"]*)"$/, async function (url) {
     await browser.url(url);
 });
 
@@ -23,16 +23,16 @@ When(/^I expect element: "([^"]*)" (text|value): "([^"]*)"$/, async function (se
         .toEqual(text)
 });
 
-When('I go to {string} menu item', function (item) {
-    // add implementation here
-});
+// When('I go to {string} menu item', function (item) {
+//     // add implementation here
+// });
 
-When(/^I fill form:$/, function (formYaml) {
-    const formData = YAML.parse(formYaml);
-    console.log({ formData });
-    // add implementation here
-});
+// When(/^I fill form:$/, function (formYaml) {
+//     const formData = YAML.parse(formYaml);
+//     console.log({ formData });
+//     // add implementation here
+// });
 
-When('I login as: {string}, {string}', function (login, password) {
-    // add implementation here
-});
+// When('I login as: {string}, {string}', function (login, password) {
+//     // add implementation here
+// });

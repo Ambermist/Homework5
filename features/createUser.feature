@@ -1,8 +1,8 @@
 Feature: User Creation
 
   Background:
-    When I go to "https://viktor-silakov.github.io/course-sut/"
-    When I login as: "User", "Password"
+    When I go to "https://viktor-silakov.github.io/course-sut/" link
+    When I login as: "walker@jw.com", "password"
 
   Scenario: Create user
     When I go to "Create User" menu item
