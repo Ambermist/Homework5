@@ -11,12 +11,16 @@ When (/^I login as: "([^"]*)", "([^"]*)"$/, async function (user, password){
         await $('#spinner').waitForDisplayed({ reverse: true, timeout: 10000 });
 });
 
-When('I go to {string} menu item', function (item) {
-    await ($`a=${item}`).click();
+When('I go to {string} menu item', async function (item) {
+    await $(`a=${item}`).click();
 });
 
-When(/^I fill form:$/, function (formYaml) {
+When(/^I fill form:$/, async function (formYaml) {
     const formData = YAML.parse(formYaml);
     console.log({ formData });
-    // add implementation here
+    const formObject = await $$('//form//input[@class="form-control"] | //form//textarea');
+    for(const field of formObject){
+        const id = await field.getAttribute('id');
+        await field.setValue(formData[id])
+    }
 });
